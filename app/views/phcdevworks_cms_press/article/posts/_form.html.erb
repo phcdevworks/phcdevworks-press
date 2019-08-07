@@ -45,7 +45,7 @@
 				<h4 class="panel-title">Post Categories</h4>
 			</div>
 			<div class="panel-body">
-				<%= form.collection_check_boxes :category_ids, Phcpress::Article::Category.all, :id, :category_name do |post_category| %>
+				<%= form.collection_check_boxes :category_ids, PhcdevworksCmsPress::Article::Category.all, :id, :category_name do |post_category| %>
 					<%= post_category.check_box %>
 					<%= post_category.label %><br>
 				<% end %>
@@ -58,7 +58,7 @@
 	<div class="col-md-9 ">
 
 		<!-- PHCNotifi Render Validation -->
-		<%= render 'phcnotifi/default/validations', :object => @article_post %>
+		<%= render 'phcdevworks_notifications/bootstrap/validations', :object => @article_post %>
 		<!-- PHCNotifi Render Validation -->
 
 		<div class="panel panel-inverse">

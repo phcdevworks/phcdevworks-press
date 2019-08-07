@@ -2,7 +2,7 @@
 <% phc_title "Article Category Manager" %>
 <% phc_title_tagline "Category Index" %>
 <% phc_breadcrumb_one yield(:phc_title) %>
-<% phc_breadcrumb_two link_to "Category Index", phcpress.article_categories_path %>
+<% phc_breadcrumb_two link_to "Category Index", phcdevworks_cms_press.article_categories_path %>
 <% phc_breadcrumb_three yield(:phc_title_tagline) %>
 <!-- Title System -->
 
@@ -43,7 +43,7 @@
 				<tbody>
 					<% @article_categories.each do |article_category| %>
 						<tr>
-							<td><%= link_to article_category.category_name, phcpress.edit_article_category_path(article_category) %></td>
+							<td><%= link_to article_category.category_name, phcdevworks_cms_press.edit_article_category_path(article_category) %></td>
 							<td>
 								<div class="btn-group d-flex" role="group">
 									<%= link_to 'Edit Category', edit_article_category_path(article_category), class: "btn btn-primary btn-xs" %>
@@ -54,7 +54,7 @@
 					<% end %>
 				</tbody>
 			</table>
-			<%= link_to phcpress.new_article_category_path, class: "btn btn-primary btn-sm" do %>
+			<%= link_to phcdevworks_cms_press.new_article_category_path, class: "btn btn-primary btn-sm" do %>
 				<i class="fas fa-plus-circle"></i>
 				<%= "Add a New Article Category" %>
 			<% end %>

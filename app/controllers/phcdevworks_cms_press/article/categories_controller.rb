@@ -46,7 +46,7 @@ module PhcdevworksCmsPress
     # PATCH/PUT /article/categories/1
     def update
       respond_to do |format|
-        if @article_category.update(member_profile_params)
+        if @article_category.update(article_category_params)
           format.html { redirect_to article_categories_path, :flash => { :notice => 'Article Category Name has been Updated.' }}
           format.json { render :show, status: :ok, location: @article_category }
         else

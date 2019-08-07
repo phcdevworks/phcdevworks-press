@@ -1,9 +1,9 @@
 <!-- Form - Article - Category -->
 <%= form_with(model: article_category, local: true) do |form| %>
 
-  <!-- PHCNotifi Render Validation -->
-  <%= render 'phcnotifi/default/validations', :object => @article_category %>
-  <!-- PHCNotifi Render Validation -->
+	<!-- PHCNotifi Render Validation -->
+	<%= render 'phcdevworks_notifications/bootstrap/validations', :object => @article_category %>
+	<!-- PHCNotifi Render Validation -->
 
   <!-- Form Input Fields -->
   <div class="form-group field_with_errors">

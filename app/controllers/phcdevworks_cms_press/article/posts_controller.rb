@@ -46,7 +46,7 @@ module PhcdevworksCmsPress
     # PATCH/PUT /article/posts/1
     def update
       respond_to do |format|
-        if @article_post.update(member_profile_params)
+        if @article_post.update(article_post_params)
           format.html { redirect_to article_posts_path, :flash => { :notice => 'Article has been Updated.' }}
           format.json { render :show, status: :ok, location: @article_post }
         else

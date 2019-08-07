@@ -12,7 +12,7 @@ module PhcdevworksCmsPress
 
     # Relationships
     has_and_belongs_to_many :categories, class_name: 'Article::Category', :join_table => 'categories_posts'
-    belongs_to :user, class_name: 'PhcdevworksAccounts::User'
+    # belongs_to :user, class_name: 'PhcdevworksAccounts::User'
 
     # Form Fields Validation
     validates :post_title,
