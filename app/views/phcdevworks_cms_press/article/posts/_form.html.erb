@@ -1,87 +1,87 @@
 <%= form_with(model: article_post, local: true) do |form| %>
-<div class="row">
-
-	<div class="col-md-3">
-
-		<!-- Panel - Publishing -->
-		<div class="panel panel-inverse">
-			<div class="panel-heading">
-				<h4 class="panel-title">Publish Panel</h4>
-			</div>
-			<div class="panel-body">
-				<div class="form-group field_with_errors">
-					<%= form.label :post_status, "Post Status" %>
-					<%= form.select( :post_status, [['Draft','draft'],['Published','published'],['Review','review']], {}, {class: "form-control form-control-sm"}) %>
+	<div class="row">
+	
+		<div class="col-md-3">
+	
+			<!-- Panel - Publishing -->
+			<div class="panel panel-inverse">
+				<div class="panel-heading">
+					<h4 class="panel-title">Publish Panel</h4>
 				</div>
-				<div class="actions">
-					<%= form.submit class: "btn btn-primary" %>
+				<div class="panel-body">
+					<div class="form-group field_with_errors">
+						<%= form.label :post_status, "Post Status" %>
+						<%= form.select( :post_status, [['Draft','draft'],['Published','published'],['Review','review']], {}, {class: "form-control form-control-sm"}) %>
+					</div>
+					<div class="actions">
+						<%= form.submit class: "btn btn-primary" %>
+					</div>
 				</div>
 			</div>
-		</div>
-		<!-- Panel - Publishing -->
-
-		<!-- Panel - Image Uploading -->
-		<div class="panel panel-inverse">
-			<div class="panel-heading">
-				<h4 class="panel-title">Post Images</h4>
-			</div>
-			<div class="panel-body">
-				<div class="form-group field_with_errors">
-					<%= form.label :post_image, "Featured Image" %>
-					<%= form.file_field :post_image, class: "form-control" %>
+			<!-- Panel - Publishing -->
+	
+			<!-- Panel - Image Uploading -->
+			<div class="panel panel-inverse">
+				<div class="panel-heading">
+					<h4 class="panel-title">Post Images</h4>
 				</div>
-				<% if form.object.post_image? %>
-					<%= image_tag form.object.post_image_url, class: "img-responsive img-thumbnail" %>
-					<%= form.label :remove_post_image %>
-					<%= form.check_box :remove_post_image %>
-				<% end %>
+				<div class="panel-body">
+					<div class="form-group field_with_errors">
+						<%= form.label :post_image, "Featured Image" %>
+						<%= form.file_field :post_image, class: "form-control" %>
+					</div>
+					<% if form.object.post_image? %>
+						<%= image_tag form.object.post_image_url, class: "img-responsive img-thumbnail" %>
+						<%= form.label :remove_post_image %>
+						<%= form.check_box :remove_post_image %>
+					<% end %>
+				</div>
 			</div>
+			<!-- Panel - Image Uploading -->
+	
+			<!-- Panel - Article - Categories -->
+			<div class="panel panel-inverse">
+				<div class="panel-heading">
+					<h4 class="panel-title">Post Categories</h4>
+				</div>
+				<div class="panel-body">
+					<%= form.collection_check_boxes :category_ids, PhcdevworksCmsPress::Article::Category.all, :id, :category_name do |post_category| %>
+						<%= post_category.check_box %>
+						<%= post_category.label %><br>
+					<% end %>
+				</div>
+			</div>
+			<!-- Panel - Article - Categories -->
+	
 		</div>
-		<!-- Panel - Image Uploading -->
-
-		<!-- Panel - Article - Categories -->
-		<div class="panel panel-inverse">
-			<div class="panel-heading">
-				<h4 class="panel-title">Post Categories</h4>
+	
+		<div class="col-md-9 ">
+	
+			<!-- PHCNotifi Render Validation -->
+			<%= render 'phcdevworks_notifications/bootstrap/validations', :object => @article_post %>
+			<!-- PHCNotifi Render Validation -->
+	
+			<div class="panel panel-inverse">
+				<div class="panel-heading">
+					<div class="panel-heading-btn">
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+						<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+					</div>
+					<h4 class="panel-title"><%= yield(:phc_title_tagline) %></h4>
+				</div>
+				<div class="panel-body">
+					<div class="form-group field_with_errors">
+						<%= form.label :post_title, "Article Title" %>
+						<%= form.text_field :post_title, class: "form-control" %>
+					</div>
+					<div class="form-group field_with_errors">
+						<%= form.text_area :post_text, :class => "form-control", :id => "editor" %>
+						<div id="word-count" class="mt-3"></div>
+					</div>
+				</div>
 			</div>
-			<div class="panel-body">
-				<%= form.collection_check_boxes :category_ids, PhcdevworksCmsPress::Article::Category.all, :id, :category_name do |post_category| %>
-					<%= post_category.check_box %>
-					<%= post_category.label %><br>
-				<% end %>
-			</div>
+	
 		</div>
-		<!-- Panel - Article - Categories -->
-
 	</div>
-
-	<div class="col-md-9 ">
-
-		<!-- PHCNotifi Render Validation -->
-		<%= render 'phcdevworks_notifications/bootstrap/validations', :object => @article_post %>
-		<!-- PHCNotifi Render Validation -->
-
-		<div class="panel panel-inverse">
-			<div class="panel-heading">
-				<div class="panel-heading-btn">
-					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-				</div>
-				<h4 class="panel-title"><%= yield(:phc_title_tagline) %></h4>
-			</div>
-			<div class="panel-body ">
-				<div class="form-group field_with_errors">
-					<%= form.label :post_title, "Article Title" %>
-					<%= form.text_field :post_title, class: "form-control" %>
-				</div>
-				<div class="form-group field_with_errors">
-					<%= form.text_area :post_text, :class => "ckeditor form-control", :id => "editor", :rows => 20, :cols => 60 %>
-					<div id="word-count"></div>
-				</div>
-			</div>
-		</div>
-
-	</div>
-</div>
 <% end %>

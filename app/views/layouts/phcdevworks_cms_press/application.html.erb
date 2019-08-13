@@ -69,30 +69,16 @@
 
   <!-- JavaScript CKEditor -->
   <script>
-    ClassicEditor
-    .create( document.querySelector( '#editor' ), {
-        fontFamily: {
-            options: [
-                'default',
-                'Ubuntu, Arial, sans-serif',
-                'Ubuntu Mono, Courier New, Courier, monospace'
-            ]
-        },
-        toolbar: [
-            'heading', 'bulletedList', 'numberedList', 'fontFamily', 'undo', 'redo'
-        ]
-    } )
-    .then( editor => {
+  	ClassicEditor.create( document.querySelector( '#editor' ) )
+  		.then( editor => {
+  			window.editor = editor;
         const wordCountPlugin = editor.plugins.get( 'WordCount' );
         const wordCountWrapper = document.getElementById( 'word-count' );
-
         wordCountWrapper.appendChild( wordCountPlugin.wordCountContainer );
-    } )
-    .catch( 
-      error => {
-        console.error( error );
-      } 
-    );
+  		} )
+  		.catch( err => {
+  			console.error( err.stack );
+  		} );
   </script>
   <!-- JavaScript CKEditor -->
 
