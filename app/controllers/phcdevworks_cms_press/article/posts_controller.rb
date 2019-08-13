@@ -6,7 +6,7 @@ module PhcdevworksCmsPress
     # Filters & Security
     #include PhcdevworksCore::PhcpluginsHelper
     #before_action :authenticate_user!
-    #before_action :set_paper_trail_whodunnit
+    before_action :set_paper_trail_whodunnit
     before_action :set_article_post, only: [:show, :edit, :update, :destroy]
 
     # GET /article/posts
@@ -32,6 +32,7 @@ module PhcdevworksCmsPress
     # POST /article/posts
     def create
       @article_post = Article::Post.new(article_post_params)
+      #@article_post.user_id = current_user.id
       respond_to do |format|
         if @article_post.save
           format.html { redirect_to article_posts_path, :flash => { :success => 'Article has been Added.' }}

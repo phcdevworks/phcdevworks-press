@@ -67,6 +67,35 @@
   <%= javascript_include_tag "phcdevworks_cms_press/application", 'data-turbolinks-track': 'reload' %>
   <!-- JavaScript -->
 
+  <!-- JavaScript CKEditor -->
+  <script>
+    ClassicEditor
+    .create( document.querySelector( '#editor' ), {
+        fontFamily: {
+            options: [
+                'default',
+                'Ubuntu, Arial, sans-serif',
+                'Ubuntu Mono, Courier New, Courier, monospace'
+            ]
+        },
+        toolbar: [
+            'heading', 'bulletedList', 'numberedList', 'fontFamily', 'undo', 'redo'
+        ]
+    } )
+    .then( editor => {
+        const wordCountPlugin = editor.plugins.get( 'WordCount' );
+        const wordCountWrapper = document.getElementById( 'word-count' );
+
+        wordCountWrapper.appendChild( wordCountPlugin.wordCountContainer );
+    } )
+    .catch( 
+      error => {
+        console.error( error );
+      } 
+    );
+  </script>
+  <!-- JavaScript CKEditor -->
+
   <!-- JavaScript Loader -->
   <script>
     $(document).ready(function() {

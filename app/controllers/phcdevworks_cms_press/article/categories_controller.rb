@@ -5,8 +5,8 @@ module PhcdevworksCmsPress
 
     # Filters & Security
     #include PhcdevworksCore::PhcpluginsHelper
-    #before_action :authenticate_user!
-    #before_action :set_paper_trail_whodunnit
+    before_action :authenticate_user!
+    before_action :set_paper_trail_whodunnit
     before_action :set_article_category, only: [:show, :edit, :update, :destroy]
 
     # GET /article/categories
@@ -32,6 +32,7 @@ module PhcdevworksCmsPress
     # POST /article/categories
     def create
       @article_category = Article::Category.new(article_category_params)
+      @article_category.user_id = current_user.id
       respond_to do |format|
         if @article_category.save
           format.html { redirect_to article_categories_path, :flash => { :success => 'Article Category has been Added.' }}
