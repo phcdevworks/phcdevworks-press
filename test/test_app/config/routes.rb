@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     root :to => 'website/pages#index'
 
     # Mount Engine
-    mount PhcdevworksCmsPress::Engine => "/phcdevworks_cms_press"
+    mount PhcdevworksPress::Engine => "/phcdevworks_press"
 
 end

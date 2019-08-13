@@ -3,7 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-require "phcdevworks_cms_press"
+require "phcdevworks_press"
 
 module TestApp
   class Application < Rails::Application
