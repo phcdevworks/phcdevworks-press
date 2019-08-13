@@ -1,4 +1,4 @@
-PhcdevworksCmsPress::Engine.routes.draw do
+PhcdevworksPress::Engine.routes.draw do
 
   # Article Routes
   namespace :article do

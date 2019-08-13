@@ -1,28 +1,34 @@
-# PhcdevworksCmsPress
-Short description and motivation.
+### Phcdevworks Press (News/Blog Engine) Documentation
+Phcdevworks Press rails CMS engine to manage your website's articles, categories and media.
 
-## Usage
-How to use my plugin.
+* Website article posts with WYSIWYG editor.
+* Upload images locally or use any popular cloud service.
+* Customizable article categories module included.
 
-## Installation
-Add this line to your application's Gemfile:
+#### Step 1 - Add Phcdevworks Press to your gemfile  and run command  
 
-```ruby
-gem 'phcdevworks_cms_press'
-```
+	gem 'phcdevworks_press'
+	bundle install
 
-And then execute:
-```bash
-$ bundle
-```
+#### Step 2 - Copy Phcdevworks Press Database Tables  
+To copy Phcdevworks Press' requried database migrations, copy each command individually to your terminal's command line.  
 
-Or install it yourself as:
-```bash
-$ gem install phcdevworks_cms_press
-```
+	rails phcdevworks_press:install:migrations
+	rails db:migrate
 
-## Contributing
-Contribution directions go here.
+#### Step 3 - Mount Phcdevworks Press & Add Routes
+Mount Phcdevworks Press by adding code below to your routes file.  
 
-## License
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+	mount PhcdevworksPress::Engine, :at => '/'
+
+#### Step 4 - Recompile Assets  
+To properly function re-compile your application's assets to copy over required files.
+
+	rails assets:clobber
+	rails assets:precompile
+
+#### Step 5 - Generate Contact Form View (Customization)  
+All Phcdevworks Press views and layouts can be overwritten by copying files to your application.
+
+	rails generate phcdevworks_press:views
+	
