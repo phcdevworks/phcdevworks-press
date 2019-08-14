@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_120259) do
+ActiveRecord::Schema.define(version: 2019_08_13_234835) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_120259) do
     t.index ["username"], name: "index_phcdevworks_accounts_users_on_username", unique: true
   end
 
-  create_table "phcdevworks_cms_press_article_categories", force: :cascade do |t|
+  create_table "phcdevworks_press_article_categories", force: :cascade do |t|
     t.string "category_name"
     t.string "slug"
     t.string "user_id"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_120259) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "phcdevworks_cms_press_article_posts", force: :cascade do |t|
+  create_table "phcdevworks_press_article_posts", force: :cascade do |t|
     t.string "post_title"
     t.string "post_text"
     t.string "post_status"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_120259) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "phcdevworks_cms_press_category_versions", force: :cascade do |t|
+  create_table "phcdevworks_press_category_versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
     t.string "event", null: false
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_120259) do
     t.index ["item_type", "item_id"], name: "press_category_versions"
   end
 
-  create_table "phcdevworks_cms_press_post_versions", force: :cascade do |t|
+  create_table "phcdevworks_press_post_versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
     t.string "event", null: false

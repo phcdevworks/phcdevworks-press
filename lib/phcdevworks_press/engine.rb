@@ -10,6 +10,11 @@ module PhcdevworksPress
     require "phcthemes_admin_panel_pack"
     require "phcthemes_web_theme_pack"
 
+    # Load Upload Dependencies
+    require "aws-sdk-s3"
+    require "google-cloud-storage"
+    require "mini_magick"
+
     # Load Helper Dependencies
     # require "phcdevworks_core"
     require "phcdevworks_active_menus"

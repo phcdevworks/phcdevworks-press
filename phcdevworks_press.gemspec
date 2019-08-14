@@ -39,6 +39,11 @@ Gem::Specification.new do |spec|
   spec.add_dependency "phcdevworks_notifications", "~> 0.35.0"
   spec.add_dependency "phcdevworks_titleseo", "~> 0.37.0"
 
+  # Images & Service Support Dependencies
+  spec.add_dependency "aws-sdk-s3", "~> 1.43"
+  spec.add_dependency "google-cloud-storage", "~> 1.18"
+  spec.add_dependency "mini_magick", "~> 4.9"
+
   # Security Dependencies
   spec.add_dependency "phcdevworks_accounts", "~> 0.8.0"
 
