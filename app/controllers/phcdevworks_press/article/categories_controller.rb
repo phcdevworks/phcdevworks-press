@@ -33,6 +33,7 @@ module PhcdevworksPress
     def create
       @article_category = Article::Category.new(article_category_params)
       @article_category.user_id = current_user.id
+      @article_category.org_id = current_user.org_id
       respond_to do |format|
         if @article_category.save
           format.html { redirect_to article_categories_path, :flash => { :success => 'Article Category has been Added.' }}
