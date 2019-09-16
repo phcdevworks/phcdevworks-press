@@ -17,9 +17,9 @@ module PhcdevworksPress
       uniqueness: true
 
     # Clean URL Define
-    friendly_id :phc_nice_url_slug, use: [:slugged, :finders]
+    friendly_id :phcdev_article_category_nice_urls, use: [:slugged, :finders]
 
-    def phc_nice_url_slug
+    def phcdev_article_category_nice_urls
       [:category_name]
     end
 

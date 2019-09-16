@@ -22,9 +22,9 @@ module PhcdevworksPress
       presence: true
 
     # Clean URL Define
-    friendly_id :phcpress_post_slug, use: [:slugged, :finders]
+    friendly_id :phcdev_article_post_nice_urls, use: [:slugged, :finders]
 
-    def phcpress_post_slug
+    def phcdev_article_post_nice_urls
       [:post_title]
     end
 
