@@ -8,7 +8,7 @@ module PhcdevworksPress
 
     # INDEX
     def index
-      @phcdevworks_cms_press_index = Article::Post.where(org_id: current_user.org_id, pststatus: "published")
+      @phcdevworks_cms_press_index = Article::Post.where(org_id: current_user.org_id, post_status: "published")
     end
 
     # SHOW
