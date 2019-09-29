@@ -4,11 +4,11 @@ module PhcdevworksPress
   class Blog::ArticlesController < ApplicationController
 
     # Layout
-    layout 'phcdevworks_press/frontend'
+    layout "phcdevworks_press/frontend"
 
     # INDEX
     def index
-      @phcdevworks_cms_press_index = Article::Post.where(org_id: current_user.org_id, post_status: "published")
+      @phcdevworks_cms_press_index = Article::Post.where(post_status: "published")
     end
 
     # SHOW
