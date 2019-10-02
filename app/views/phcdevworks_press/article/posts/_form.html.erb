@@ -30,10 +30,8 @@
 						<%= form.label :post_image, "Featured Image" %>
 						<%= form.file_field :post_image, class: "form-control" %>
 					</div>
-					<% if form.object.post_image? %>
-						<%= image_tag form.object.post_image_url, class: "img-responsive img-thumbnail" %>
-						<%= form.label :remove_post_image %>
-						<%= form.check_box :remove_post_image %>
+					<% if form.object.post_image.attached? %>
+						<%= image_tag main_app.url_for(form.object.post_image), class: "img-responsive img-thumbnail" %>
 					<% end %>
 				</div>
 			</div>
