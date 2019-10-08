@@ -1,68 +1,83 @@
-<!-- Title System -->
+<!-- PHCTitleSEO Title Variables -->
 <% phc_title "Article Manager" %>
 <% phc_title_tagline "Article Index" %>
 <% phc_breadcrumb_one yield(:phc_title) %>
 <% phc_breadcrumb_two yield(:phc_title_tagline) %>
-<!-- Title System -->
+<!-- PHCTitleSEO Title Variables -->
 
 <!-- Page Bradcrumbs -->
 <ol class="breadcrumb pull-right">
-  <li class="breadcrumb-item"><%= yield(:phc_breadcrumb_one) %></li>
-  <li class="breadcrumb-item active"><%= yield(:phc_breadcrumb_two) %></li>
+	<li class="breadcrumb-item"><%= yield(:phc_breadcrumb_one) %></li>
+	<li class="breadcrumb-item active"><%= yield(:phc_breadcrumb_two) %></li>
 </ol>
 <!-- Page Bradcrumbs -->
 
 <!-- Page Header -->
-<h1 class="page-header"><%= yield(:phc_title) %></h1>
+<h2 class="page-header"><%= yield(:phc_title) %></h2>
 <!-- Page Header -->
 
-<!-- Page & Panel Content -->
-<div class="panel panel-inverse">
-  <!-- Panel Heading -->
-  <div class="panel-heading">
-    <div class="panel-heading-btn">
-      <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-      <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-      <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-    </div>
-    <h4 class="panel-title"><%= yield(:phc_title_tagline) %></h4>
-  </div>
-  <!-- Panel Heading -->
-  <!-- Panel Body -->
-  <div class="panel-body">
-		<!-- Table - Article Index -->
-		<div class="table-responsive">
-			<table class="table table-striped table-bordered">
-				<thead>
-					<tr>
-						<th>Post Headline</th>
-						<th>Post Preview</th>
-						<th>Post Status</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @article_posts.each do |article_post| %>
-						<tr>
-							<td><%= article_post.post_title %></td>
-							<td><%= truncate(article_post.post_text, :length => 80, :escape => false) %></td>
-							<td><%= article_post.post_status.capitalize %></td>
-							<td>
-								<div class="btn-group d-flex" role="group">
-									<%= link_to 'Update Post', edit_article_post_path(article_post), class: "btn btn-primary btn-xs" %>
-									<%= link_to 'Remove Post', article_post, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Are you sure?' } %>
-								</div>
-							</td>
-						</tr>
-					<% end %>
-				</tbody>
-			</table>
-			<%= link_to phcdevworks_press.new_article_post_path, class: "btn btn-primary" do %>
-				<i class="fas fa-plus-circle"></i>
-				<%= "Add a New Article Post" %>
-			<% end %>
+<!-- Page Content -->
+<div class="row">
+	<div class="col-lg-12">
+
+		<!-- Panel -->
+		<div class="panel panel-inverse">
+
+			<!-- Panel - Heading -->
+			<div class="panel-heading">
+				<h4 class="panel-title"><%= yield(:phc_title) %></h4>
+			</div>
+			<!-- Panel - Heading -->
+
+			<!-- Panel - Body -->
+			<div class="panel-body">
+
+				<!-- Index - Table -->
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered">
+
+						<thead>
+							<tr>
+								<th>Post Headline</th>
+								<th>Post Preview</th>
+								<th>Post Status</th>
+								<th></th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<% @article_posts.each do |article_post| %>
+								<tr>
+									<td><%= article_post.post_title %></td>
+									<td><%= truncate(article_post.post_text, :length => 80, :escape => false) %></td>
+									<td><%= article_post.post_status.capitalize %></td>
+									<td>
+										<div class="btn-group d-flex" role="group">
+											<%= link_to "Update Post", edit_article_post_path(article_post), class: "btn btn-primary btn-xs" %>
+											<%= link_to "Remove Post", article_post, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure?" } %>
+										</div>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
+
+					</table>
+				</div>
+				<!-- Index - Table -->
+
+				<!-- New Button -->
+				<%= link_to phcdevworks_press.new_article_post_path, class: "btn btn-primary" do %>
+					<i class="fad fa-plus-circle"></i>
+					<%= "Add a New Article Post" %>
+				<% end %>
+				<!-- New Button -->
+
+			</div>
+			<!-- Panel - Body -->
+
 		</div>
-		<!-- Table - Article Index -->
+		<!-- Panel -->
+
 	</div>
 </div>
 <!-- Page Content -->

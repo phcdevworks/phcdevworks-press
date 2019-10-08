@@ -1,69 +1,69 @@
 <% @phcdevworks_cms_press_index.each do |blog_post_index| %>
-<div class="row blog-post">
-	<div class="col-md-2 date-md">
-		<div class="date-wrapper">
-			<span class="date-m bg-primary"><%= blog_post_index.created_at.strftime("%B") %></span>
-			<span class="date-d"><%= blog_post_index.created_at.strftime("%d") %></span>
-		</div>
-		<p class="text-muted text-sm">
-			<i class="fas fa-user-tie text-xs"></i>
-			<%= blog_post_index.user_id %>
-		</p>
-	</div>
-	<div class="col-md-10">
-		<div class="text-xs">
-			<a href="#" class="text-primary text-uppercase">Blog</a> /
-			<a href="#" class="text-dark text-uppercase">Post</a>
-		</div>
-		<h4 class="title media-heading">
-			<%= blog_post_index.post_title %>
-		</h4>
-		<ul class="list-inline meta text-muted">
-			<li class="list-inline-item">
-				<i class="fas fa-calendar-alt text-xs"></i>
-				<%= blog_post_index.created_at.strftime("%a %B %d %Y") %>
-			</li>
-			<li class="list-inline-item">
+	<div class="row blog-post">
+		<div class="col-md-2 date-md">
+			<div class="date-wrapper">
+				<span class="date-m bg-primary"><%= blog_post_index.created_at.strftime("%B") %></span>
+				<span class="date-d"><%= blog_post_index.created_at.strftime("%d") %></span>
+			</div>
+			<p class="text-muted text-sm">
 				<i class="fas fa-user-tie text-xs"></i>
 				<%= blog_post_index.user_id %>
-			</li>
-		</ul>
-		<div class="row">
-			<div class="col-md-12">
-				<% if blog_post_index.pstimage.attached? %>
-					<div class="blog-media">
-						<img src="<%= url_for(blog_post_index.post_image) %>" alt="Picture for Blog Post - <%= blog_post_index.post_title %>" class="img-fluid" />
-					</div>
-				<% end %>
-			</div>
+			</p>
 		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<%= truncate(blog_post_index.post_text, :length => 120, :escape => false) %>
-				<ul class="list-inline links">
-					<li class="list-inline-item">
-						<%= link_to blog_article_path(blog_post_index), class: "btn btn-secondary btn-sm" do %>
-							<i class="fas fa-arrow-alt-circle-right"></i> Read More
-						<% end %>
-					</li>
-					<li class="list-inline-item">
-						<a href="blog-post.html#comments" class="btn btn-secondary btn-sm"><i class="fa fa-comment"></i> 64 Comments</a>
-					</li>
-					<% if current_user.admin! %>
-						<li class="list-inline-item">
-							<%= link_to edit_article_post_path(blog_post_index), class: "btn btn-secondary btn-sm" do %>
-								<i class="fas fa-edit"></i> Edit Post
-							<% end %>
-						</li>
-						<li class="list-inline-item">
-							<%= link_to blog_post_index, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: 'Are you sure?' } do %>
-								<i class="fas fa-dumpster"></i> Delete Post
-							<% end %>
-						</li>
+		<div class="col-md-10">
+			<div class="text-xs">
+				<a href="#" class="text-primary text-uppercase">Blog</a> /
+				<a href="#" class="text-dark text-uppercase">Post</a>
+			</div>
+			<h4 class="title media-heading">
+				<%= blog_post_index.post_title %>
+			</h4>
+			<ul class="list-inline meta text-muted">
+				<li class="list-inline-item">
+					<i class="fas fa-calendar-alt text-xs"></i>
+					<%= blog_post_index.created_at.strftime("%a %B %d %Y") %>
+				</li>
+				<li class="list-inline-item">
+					<i class="fas fa-user-tie text-xs"></i>
+					<%= blog_post_index.user_id %>
+				</li>
+			</ul>
+			<div class="row">
+				<div class="col-md-12">
+					<% if blog_post_index.pstimage.attached? %>
+						<div class="blog-media">
+							<img src="<%= url_for(blog_post_index.post_image) %>" alt="Picture for Blog Post - <%= blog_post_index.post_title %>" class="img-fluid" />
+						</div>
 					<% end %>
-				</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<%= truncate(blog_post_index.post_text, :length => 120, :escape => false) %>
+					<ul class="list-inline links">
+						<li class="list-inline-item">
+							<%= link_to blog_article_path(blog_post_index), class: "btn btn-secondary btn-sm" do %>
+								<i class="fas fa-arrow-alt-circle-right"></i> Read More
+							<% end %>
+						</li>
+						<li class="list-inline-item">
+							<a href="blog-post.html#comments" class="btn btn-secondary btn-sm"><i class="fa fa-comment"></i> 64 Comments</a>
+						</li>
+						<% if current_user.admin! %>
+							<li class="list-inline-item">
+								<%= link_to edit_article_post_path(blog_post_index), class: "btn btn-secondary btn-sm" do %>
+									<i class="fas fa-edit"></i> Edit Post
+								<% end %>
+							</li>
+							<li class="list-inline-item">
+								<%= link_to blog_post_index, class: "btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?" } do %>
+									<i class="fas fa-dumpster"></i> Delete Post
+								<% end %>
+							</li>
+						<% end %>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 <% end %>

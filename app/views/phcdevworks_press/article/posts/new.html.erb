@@ -1,10 +1,10 @@
-<!-- Title System -->
+<!-- PHCTitleSEO Title Variables -->
 <% phc_title "Article Manager" %>
 <% phc_title_tagline "Create a New Article" %>
 <% phc_breadcrumb_one yield(:phc_title) %>
 <% phc_breadcrumb_two link_to "Article Index", phcdevworks_press.article_posts_path %>
 <% phc_breadcrumb_three yield(:phc_title_tagline) %>
-<!-- Title System -->
+<!-- PHCTitleSEO Title Variables -->
 
 <!-- Page Bradcrumbs -->
 <ol class="breadcrumb pull-right">
@@ -18,6 +18,6 @@
 <h1 class="page-header"><%= yield(:phc_title) %></h1>
 <!-- Page Header -->
 
-<!-- Form for New Article Post -->
-<%= render 'form', article_post: @article_post %>
-<!-- Form for New Article Post -->
+<!-- New Form -->
+<%= render "form", article_post: @article_post %>
+<!-- New Form -->
