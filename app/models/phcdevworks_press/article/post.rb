@@ -11,7 +11,7 @@ module PhcdevworksPress
     has_one_attached :post_image
 
     # Relationships
-    has_and_belongs_to_many :categories, class_name: 'Article::Category', :join_table => 'categories_posts'
+    has_and_belongs_to_many :categories, class_name: 'Article::Category', :join_table => 'phcdevworks_press_categories_posts'
     belongs_to :user, class_name: 'PhcdevworksAccounts::User'
 
     # Form Fields Validation

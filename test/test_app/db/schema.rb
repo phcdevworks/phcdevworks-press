@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_15_114140) do
+ActiveRecord::Schema.define(version: 2019_10_25_103108) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -50,11 +50,6 @@ ActiveRecord::Schema.define(version: 2019_10_15_114140) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "categories_posts", id: false, force: :cascade do |t|
-    t.integer "category_id", null: false
-    t.integer "post_id", null: false
   end
 
   create_table "phcdevworks_accounts_users", force: :cascade do |t|
@@ -98,6 +93,11 @@ ActiveRecord::Schema.define(version: 2019_10_15_114140) do
     t.string "org_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "phcdevworks_press_categories_posts", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "post_id"
   end
 
   create_table "phcdevworks_press_category_versions", force: :cascade do |t|
