@@ -17,7 +17,7 @@ module PhcdevworksPress
     # GET /article/posts/1
     def show
       @article_post = Article::Post.friendly.find(params[:id])
-      @versions = PhcdevworksPress::PostVersions.where(item_id: params[:id], item_type: 'PhcdevworksPress::Article::Post')
+      @versions = PhcdevworksPress::ArticlePostVersions.where(item_id: params[:id], item_type: 'PhcdevworksPress::Article::Post')
     end
 
     # GET /article/posts/new

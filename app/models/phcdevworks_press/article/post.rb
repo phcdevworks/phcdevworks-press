@@ -5,14 +5,14 @@ module PhcdevworksPress
     extend FriendlyId
 
     # Paper Trail Initialize
-    has_paper_trail :class_name => 'PhcdevworksPress::PostVersions'
+    has_paper_trail :class_name => "PhcdevworksPress::ArticlePostVersions"
 
     # Image Upload
     has_one_attached :post_image
 
     # Relationships
-    has_and_belongs_to_many :categories, class_name: 'Article::Category', :join_table => 'phcdevworks_press_categories_posts'
-    belongs_to :user, class_name: 'PhcdevworksAccounts::User'
+    has_and_belongs_to_many :categories, class_name: "Article::Category", :join_table => "phcdevworks_press_categories_posts"
+    belongs_to :user, class_name: "PhcdevworksAccounts::User"
 
     # Form Fields Validation
     validates :post_title,

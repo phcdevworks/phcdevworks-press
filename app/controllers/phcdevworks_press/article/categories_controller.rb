@@ -17,7 +17,7 @@ module PhcdevworksPress
     # GET /article/categories/1
     def show
       @article_category = Article::Category.friendly.find(params[:id])
-      @versions = PhcdevworksPress::CategoryVersions.where(item_id: params[:id], item_type: 'PhcdevworksPress::Article::Category')
+      @versions = PhcdevworksPress::ArticleCategoryVersions.where(item_id: params[:id], item_type: 'PhcdevworksPress::Article::Category')
     end
 
     # GET /article/categories/new

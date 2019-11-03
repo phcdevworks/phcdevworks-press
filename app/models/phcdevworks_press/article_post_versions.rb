@@ -1,5 +1,5 @@
 module PhcdevworksPress
-  class PostVersions < PaperTrail::Version
+  class ArticlePostVersions < PaperTrail::Version
     self.table_name = :phcdevworks_press_post_versions
   end
 end
