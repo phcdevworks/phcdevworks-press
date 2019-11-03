@@ -25,7 +25,7 @@ module PhcdevworksPress
     friendly_id :phcdev_article_post_nice_urls, use: [:slugged, :finders]
 
     def phcdev_article_post_nice_urls
-      [:project_post_title]
+      [:post_title]
     end
 
   end
