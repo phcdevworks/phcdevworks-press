@@ -11,7 +11,7 @@ class CreatePhcdevworksPressCategoryVersions < ActiveRecord::Migration[6.0]
       t.datetime :created_at
     end
 
-    add_index :phcdevworks_press_category_versions, %i(item_type item_id), :name => 'press_category_versions'
+    add_index :phcdevworks_press_category_versions, %i(item_type item_id), :name => 'article_category_versions'
 
   end
 end
