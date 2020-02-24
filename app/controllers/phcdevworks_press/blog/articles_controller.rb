@@ -8,7 +8,8 @@ module PhcdevworksPress
 
     # INDEX
     def index
-      @phcdevworks_cms_press_index = Article::Post.where(post_status: "published")
+      @phcdevworks_cms_press_index = Article::Post.where(post_status: "published").order("created_at DESC")
+      @phcdevworks_cms_press_randomizer = Article::Post.order('RANDOM()').limit(1)
     end
 
     # SHOW
