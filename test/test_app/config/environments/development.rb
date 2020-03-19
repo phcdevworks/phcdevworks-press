@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.hosts << "65b72b74717c4c2fbc6343ebf6723639.vfs.cloud9.ap-southeast-1.amazonaws.com"
+
+  # Configure Host for Development Environment
+  config.hosts << ENV["C9_PID"] + ".vfs.cloud9.ap-southeast-1.amazonaws.com"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development

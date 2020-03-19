@@ -21,8 +21,10 @@ module PhcdevworksPress
     require "google-cloud-storage"
     require "mini_magick"
 
-    # Load User Accounts
-    require "phcdevworks_accounts"
+    # Frontend Dependencies
+    require "wicked"
+    require "gravtastic"
+    require "friendly_id"
 
     # Load User Accounts
     require "phcdevworks_accounts"
