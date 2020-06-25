@@ -1,3 +1,3 @@
 module PhcdevworksPress
-    VERSION = "4.6.0"
+    VERSION = "4.8.0"
 end
