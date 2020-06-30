@@ -45,7 +45,7 @@
 				<h4 class="panel-title">Post Categories</h4>
 			</div>
 			<div class="panel-body">
-				<%= form.collection_check_boxes :category_ids, PhcdevworksPress::Article::Category.all, :id, :category_name do |post_category| %>
+				<%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Modules::Category.all, :id, :category_name do |post_category| %>
 					<%= post_category.check_box %>
 					<%= post_category.label %><br>
 				<% end %>
