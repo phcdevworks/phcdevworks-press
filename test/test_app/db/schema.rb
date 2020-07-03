@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_231932) do
+ActiveRecord::Schema.define(version: 2020_07_03_102567) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -74,7 +74,17 @@ ActiveRecord::Schema.define(version: 2020_06_17_231932) do
     t.index ["username"], name: "index_phcdevworks_accounts_users_on_username", unique: true
   end
 
-  create_table "phcdevworks_press_article_categories", force: :cascade do |t|
+  create_table "phcdevworks_core_category_versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
+    t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "core_category_versions"
+  end
+
+  create_table "phcdevworks_core_modules_modules_categories", force: :cascade do |t|
     t.string "category_name"
     t.string "slug"
     t.string "user_id"
@@ -87,7 +97,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_231932) do
     t.string "post_title"
     t.text "post_text"
     t.string "post_status"
-    t.string "post_image"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
@@ -98,16 +107,6 @@ ActiveRecord::Schema.define(version: 2020_06_17_231932) do
   create_table "phcdevworks_press_categories_posts", force: :cascade do |t|
     t.integer "category_id"
     t.integer "post_id"
-  end
-
-  create_table "phcdevworks_press_category_versions", force: :cascade do |t|
-    t.string "item_type", null: false
-    t.integer "item_id", null: false
-    t.string "event", null: false
-    t.string "whodunnit"
-    t.text "object", limit: 1073741823
-    t.datetime "created_at"
-    t.index ["item_type", "item_id"], name: "article_category_versions"
   end
 
   create_table "phcdevworks_press_post_versions", force: :cascade do |t|
