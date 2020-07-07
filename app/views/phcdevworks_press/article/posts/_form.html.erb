@@ -42,13 +42,17 @@
 		<!-- Panel - Article - Categories -->
 		<div class="panel panel-inverse">
 			<div class="panel-heading">
-				<h4 class="panel-title">Post Categories</h4>
+				<h4 class="panel-title">Post Categories & SEO</h4>
 			</div>
 			<div class="panel-body">
-				<%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Modules::Category.all, :id, :category_name do |post_category| %>
+				<%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Post::Category.all, :id, :category_name do |post_category| %>
 					<%= post_category.check_box %>
 					<%= post_category.label %><br>
 				<% end %>
+				<div class="form-group">
+					<label>Attach SEO Data</label>
+					<%= collection_select(:article_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("seo_title"), :id, :seo_title, {}, {class: "form-control"}) %>
+				</div>
 			</div>
 		</div>
 		<!-- Panel - Article - Categories -->
