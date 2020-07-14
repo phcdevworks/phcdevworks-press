@@ -1,14 +1,14 @@
 module PhcdevworksPress
-  class Article::Post < ApplicationRecord
+  class Review::Post < ApplicationRecord
 
     # Clean URL Initialize
     extend FriendlyId
 
     # Paper Trail Initialize
-    has_paper_trail :class_name => "PhcdevworksPress::ArticlePostVersions"
+    has_paper_trail :class_name => "PhcdevworksPress::ReviewPostVersions"
 
     # Image Upload
-    has_one_attached :article_post_image
+    has_one_attached :review_post_image
 
     # Relationships
     belongs_to :user, class_name: "PhcdevworksAccounts::User"
@@ -16,17 +16,17 @@ module PhcdevworksPress
     belongs_to :optimization, class_name: "PhcdevworksCoreModules::Marketing::Optimization", optional: true
 
     # Form Fields Validation
-    validates :article_post_title,
+    validates :review_title,
       presence: true
 
-    validates :article_post_text,
+    validates :review_text,
       presence: true
 
     # Clean URL Define
-    friendly_id :list_post_imagearticle_post_nice_urls, use: [:slugged, :finders]
+    friendly_id :article_review_nice_urls, use: [:slugged, :finders]
 
-    def list_post_imagearticle_post_nice_urls
-      [:article_post_title]
+    def article_review_nice_urls
+      [:review_title]
     end
 
   end

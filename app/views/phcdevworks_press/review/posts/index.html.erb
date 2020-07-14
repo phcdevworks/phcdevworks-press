@@ -1,6 +1,6 @@
 <!-- PHCTitleSEO Title Variables -->
-<% phc_title "Article Manager" %>
-<% phc_title_tagline "Article Index" %>
+<% phc_title "Reviews Manager" %>
+<% phc_title_tagline "Reviews Index" %>
 <% phc_breadcrumb_one yield(:phc_title) %>
 <% phc_breadcrumb_two yield(:phc_title_tagline) %>
 <!-- PHCTitleSEO Title Variables -->
@@ -38,23 +38,23 @@
 
 						<thead>
 							<tr>
-								<th>Post Headline</th>
-								<th>Post Preview</th>
-								<th>Post Status</th>
+								<th>Review Headline</th>
+								<th>Text Preview</th>
+								<th>Review Status</th>
 								<th></th>
 							</tr>
 						</thead>
 
 						<tbody>
-							<% @article_posts.each do |article_post| %>
+							<% @review_posts.each do |review_post| %>
 								<tr>
-									<td><%= article_post.article_post_title %></td>
-									<td><%= truncate(article_post.article_post_text, :length => 80, :escape => false) %></td>
-									<td><%= article_post.article_post_status.capitalize %></td>
+									<td><%= review_post.article_post_title %></td>
+									<td><%= truncate(review_post.article_post_text, :length => 80, :escape => false) %></td>
+									<td><%= review_post.article_post_status.capitalize %></td>
 									<td>
 										<div class="btn-group d-flex" role="group">
-											<%= link_to "Update Post", edit_article_post_path(article_post), class: "btn btn-primary btn-xs" %>
-											<%= link_to "Remove Post", article_post, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure?" } %>
+											<%= link_to "Update Review", edit_review_post_path(review_post), class: "btn btn-primary btn-xs" %>
+											<%= link_to "Remove Review", review_post, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure?" } %>
 										</div>
 									</td>
 								</tr>
@@ -66,9 +66,9 @@
 				<!-- Index - Table -->
 
 				<!-- New Button -->
-				<%= link_to phcdevworks_press.new_article_post_path, class: "btn btn-primary" do %>
+				<%= link_to phcdevworks_press.new_review_post_path, class: "btn btn-primary" do %>
 					<i class="fad fa-plus-circle"></i>
-					<%= "Add a New Article Post" %>
+					<%= "Add a New Review" %>
 				<% end %>
 				<!-- New Button -->
 

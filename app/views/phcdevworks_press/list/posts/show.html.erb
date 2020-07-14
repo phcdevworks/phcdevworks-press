@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>List title:</strong>
+  <%= @list_post.list_title %>
+</p>
+
+<%= link_to 'Edit', edit_list_post_path(@list_post) %> |
+<%= link_to 'Back', list_posts_path %>

@@ -3,10 +3,11 @@ class CreatePhcdevworksPressArticlePosts < ActiveRecord::Migration[6.0]
   def change
     create_table :phcdevworks_press_article_posts do |t|
 
-      t.string :post_title
-      t.text :post_text
-      t.string :post_status
-      t.string :post_image
+      t.string :article_post_title
+      t.text :article_post_text
+      t.string :article_post_status
+
+      t.string :optimization_id
 
       t.string :slug
       t.string :user_id

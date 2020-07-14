@@ -38,23 +38,23 @@
 
 						<thead>
 							<tr>
-								<th>Post Headline</th>
-								<th>Post Preview</th>
-								<th>Post Status</th>
+								<th>List Headline</th>
+								<th>Text Preview</th>
+								<th>List Status</th>
 								<th></th>
 							</tr>
 						</thead>
 
 						<tbody>
-							<% @article_posts.each do |article_post| %>
+							<% @list_posts.each do |list_post| %>
 								<tr>
-									<td><%= article_post.article_post_title %></td>
-									<td><%= truncate(article_post.article_post_text, :length => 80, :escape => false) %></td>
-									<td><%= article_post.article_post_status.capitalize %></td>
+									<td><%= list_post.list_post_title %></td>
+									<td><%= truncate(list_post.list_post_text, :length => 80, :escape => false) %></td>
+									<td><%= list_post.list_post_status.capitalize %></td>
 									<td>
 										<div class="btn-group d-flex" role="group">
-											<%= link_to "Update Post", edit_article_post_path(article_post), class: "btn btn-primary btn-xs" %>
-											<%= link_to "Remove Post", article_post, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure?" } %>
+											<%= link_to "Update List", edit_list_post_path(list_post), class: "btn btn-primary btn-xs" %>
+											<%= link_to "Remove List", list_post, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure?" } %>
 										</div>
 									</td>
 								</tr>
@@ -66,9 +66,9 @@
 				<!-- Index - Table -->
 
 				<!-- New Button -->
-				<%= link_to phcdevworks_press.new_article_post_path, class: "btn btn-primary" do %>
+				<%= link_to phcdevworks_press.new_list_post_path, class: "btn btn-primary" do %>
 					<i class="fad fa-plus-circle"></i>
-					<%= "Add a New Article Post" %>
+					<%= "Add a New Top List" %>
 				<% end %>
 				<!-- New Button -->
 

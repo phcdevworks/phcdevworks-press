@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_07_122252) do
+ActiveRecord::Schema.define(version: 2020_07_13_123475) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -74,27 +74,27 @@ ActiveRecord::Schema.define(version: 2020_07_07_122252) do
     t.index ["username"], name: "index_phcdevworks_accounts_users_on_username", unique: true
   end
 
-  create_table "phcdevworks_core_modules_category_versions", force: :cascade do |t|
+  create_table "phcdevworks_core_modules_marketing_optimization_versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
     t.text "object", limit: 1073741823
     t.datetime "created_at"
-    t.index ["item_type", "item_id"], name: "core_category_versions"
+    t.index ["item_type", "item_id"], name: "marketing_optimize_versions"
   end
 
   create_table "phcdevworks_core_modules_marketing_optimizations", force: :cascade do |t|
-    t.string "seo_title"
-    t.text "seo_description"
-    t.string "seo_open_graph_post_type"
-    t.string "seo_open_graph_url"
-    t.string "seo_open_graph_title"
-    t.text "seo_open_graph_description"
-    t.string "seo_twitter_post_type"
-    t.string "seo_twitter_url"
-    t.string "seo_twitter_title"
-    t.text "seo_twitter_description"
+    t.string "marketing_optimization_page_title"
+    t.text "marketing_optimization_page_description"
+    t.string "marketing_optimization_og_title"
+    t.text "marketing_optimization_og_description"
+    t.string "marketing_optimization_og_type"
+    t.string "marketing_optimization_og_url"
+    t.string "marketing_optimization_twitter_title"
+    t.text "marketing_optimization_twitter_description"
+    t.string "marketing_optimization_twitter_type"
+    t.string "marketing_optimization_twitter_url"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
@@ -102,44 +102,27 @@ ActiveRecord::Schema.define(version: 2020_07_07_122252) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "phcdevworks_core_modules_optimization_versions", force: :cascade do |t|
+  create_table "phcdevworks_core_modules_post_categories", force: :cascade do |t|
+    t.string "post_category_name"
+    t.string "slug"
+    t.string "user_id"
+    t.string "org_id"
+    t.string "optimization_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "phcdevworks_core_modules_post_category_versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
     t.text "object", limit: 1073741823
     t.datetime "created_at"
-    t.index ["item_type", "item_id"], name: "core_optimize_versions"
+    t.index ["item_type", "item_id"], name: "post_category_versions"
   end
 
-  create_table "phcdevworks_core_modules_post_categories", force: :cascade do |t|
-    t.string "category_name"
-    t.string "slug"
-    t.string "user_id"
-    t.string "org_id"
-    t.string "optimization_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "phcdevworks_press_article_posts", force: :cascade do |t|
-    t.string "post_title"
-    t.text "post_text"
-    t.string "post_status"
-    t.string "slug"
-    t.string "user_id"
-    t.string "org_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "optimization_id"
-  end
-
-  create_table "phcdevworks_press_categories_posts", force: :cascade do |t|
-    t.integer "category_id"
-    t.integer "post_id"
-  end
-
-  create_table "phcdevworks_press_post_versions", force: :cascade do |t|
+  create_table "phcdevworks_press_article_post_versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
     t.string "event", null: false
@@ -147,6 +130,91 @@ ActiveRecord::Schema.define(version: 2020_07_07_122252) do
     t.text "object", limit: 1073741823
     t.datetime "created_at"
     t.index ["item_type", "item_id"], name: "article_post_versions"
+  end
+
+  create_table "phcdevworks_press_article_posts", force: :cascade do |t|
+    t.string "article_post_title"
+    t.text "article_post_text"
+    t.string "article_post_status"
+    t.string "optimization_id"
+    t.string "slug"
+    t.string "user_id"
+    t.string "org_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "phcdevworks_press_categories_posts", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "post_id"
+  end
+
+  create_table "phcdevworks_press_list_item_versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
+    t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "list_item_versions"
+  end
+
+  create_table "phcdevworks_press_list_items", force: :cascade do |t|
+    t.string "list_item_title"
+    t.text "list_item_text"
+    t.string "list_item_status"
+    t.string "post_id"
+    t.string "optimization_id"
+    t.string "slug"
+    t.string "user_id"
+    t.string "org_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "phcdevworks_press_list_post_versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
+    t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "list_post_versions"
+  end
+
+  create_table "phcdevworks_press_list_posts", force: :cascade do |t|
+    t.string "list_post_title"
+    t.text "list_post_text"
+    t.string "list_post_status"
+    t.string "optimization_id"
+    t.string "slug"
+    t.string "user_id"
+    t.string "org_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "phcdevworks_press_review_post_versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
+    t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "review_post_versions"
+  end
+
+  create_table "phcdevworks_press_review_posts", force: :cascade do |t|
+    t.string "review_post_title"
+    t.text "review_post_text"
+    t.string "review_post_status"
+    t.integer "review_post_rating"
+    t.string "optimization_id"
+    t.string "slug"
+    t.string "user_id"
+    t.string "org_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

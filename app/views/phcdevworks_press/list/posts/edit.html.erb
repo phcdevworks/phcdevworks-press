@@ -1,0 +1,23 @@
+<!-- PHCTitleSEO Title Variables -->
+<% phc_title "List Manager" %>
+<% phc_title_tagline "Update List" %>
+<% phc_breadcrumb_one yield(:phc_title) %>
+<% phc_breadcrumb_two link_to "List Index", phcdevworks_press.list_posts_path %>
+<% phc_breadcrumb_three yield(:phc_title_tagline) %>
+<!-- PHCTitleSEO Title Variables -->
+
+<!-- Page Bradcrumbs -->
+<ol class="breadcrumb pull-right">
+	<li class="breadcrumb-item"><%= yield(:phc_breadcrumb_one) %></li>
+	<li class="breadcrumb-item"><%= yield(:phc_breadcrumb_two) %></li>
+	<li class="breadcrumb-item active"><%= yield(:phc_breadcrumb_three) %></li>
+</ol>
+<!-- Page Bradcrumbs -->
+
+<!-- Page Header -->
+<h2 class="page-header"><%= yield(:phc_title) %></h2>
+<!-- Page Header -->
+
+<!-- Edit Form -->
+<%= render 'form', list_post: @list_post %>
+<!-- Edit Form -->

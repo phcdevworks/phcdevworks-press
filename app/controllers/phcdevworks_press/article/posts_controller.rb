@@ -76,7 +76,7 @@ module PhcdevworksPress
 
     # Whitelist
     def article_post_params
-      params.require(:article_post).permit(:post_title, :post_text, :post_status, :post_image, :remove_post_image, :slug, :optimization_id, :org_id, :user_id, category_ids: [])
+      params.require(:article_post).permit(:article_post_title, :article_post_text, :article_post_status, :article_post_image, :remove_article_post_image, :slug, :optimization_id, :org_id, :user_id, category_ids: [])
     end
 
   end
