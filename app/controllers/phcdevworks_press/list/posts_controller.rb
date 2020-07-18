@@ -16,7 +16,7 @@ module PhcdevworksPress
 
     # GET /list/posts/1
     def show
-      @list_post = Article::Post.friendly.find(params[:id])
+      @list_post = List::Post.friendly.find(params[:id])
     end
 
     # GET /list/posts/new

@@ -48,9 +48,9 @@
 						<tbody>
 							<% @review_posts.each do |review_post| %>
 								<tr>
-									<td><%= review_post.article_post_title %></td>
-									<td><%= truncate(review_post.article_post_text, :length => 80, :escape => false) %></td>
-									<td><%= review_post.article_post_status.capitalize %></td>
+									<td><%= review_post.review_post_title %></td>
+									<td><%= truncate(review_post.review_post_text, :length => 80, :escape => false) %></td>
+									<td><%= review_post.review_post_status.capitalize %></td>
 									<td>
 										<div class="btn-group d-flex" role="group">
 											<%= link_to "Update Review", edit_review_post_path(review_post), class: "btn btn-primary btn-xs" %>

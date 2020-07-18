@@ -1,6 +1,6 @@
 <!-- PHCTitleSEO Title Variables -->
-<% phc_title "Article Manager" %>
-<% phc_title_tagline "Article Index" %>
+<% phc_title "List Manager" %>
+<% phc_title_tagline "List Index" %>
 <% phc_breadcrumb_one yield(:phc_title) %>
 <% phc_breadcrumb_two yield(:phc_title_tagline) %>
 <!-- PHCTitleSEO Title Variables -->
@@ -53,6 +53,7 @@
 									<td><%= list_post.list_post_status.capitalize %></td>
 									<td>
 										<div class="btn-group d-flex" role="group">
+											<%= link_to "List Details", list_post_path(list_post), class: "btn btn-primary btn-xs" %>
 											<%= link_to "Update List", edit_list_post_path(list_post), class: "btn btn-primary btn-xs" %>
 											<%= link_to "Remove List", list_post, class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure?" } %>
 										</div>

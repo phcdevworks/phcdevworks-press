@@ -1,6 +1,6 @@
 <!-- PHCTitleSEO Title Variables -->
-<% phc_title "Article Manager" %>
-<% phc_title_tagline "Article Index" %>
+<% phc_title "List Manager" %>
+<% phc_title_tagline "List Item Index" %>
 <% phc_breadcrumb_one yield(:phc_title) %>
 <% phc_breadcrumb_two yield(:phc_title_tagline) %>
 <!-- PHCTitleSEO Title Variables -->
@@ -36,23 +36,28 @@
 				<div class="table-responsive">
 					<table class="table table-striped table-bordered">
 
-<thead>
-<tr>
-<th>Item title</th>
-<th colspan="3"></th>
-</tr>
-</thead>
+						<thead>
+							<tr>
+								<th>Item Headline</th>
+								<th>Text Preview</th>
+								<th></th>
+							</tr>
+						</thead>
 
-<tbody>
-<% @list_items.each do |list_item| %>
-<tr>
-<td><%= list_item.item_title %></td>
-<td><%= link_to 'Show', list_item %></td>
-<td><%= link_to 'Edit', edit_list_item_path(list_item) %></td>
-<td><%= link_to 'Destroy', list_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</tr>
-<% end %>
-</tbody>
+						<tbody>
+							<% @list_items.each do |list_item| %>
+								<tr>
+									<td><%= list_item.list_item_title %></td>
+									<td><%= truncate(list_item.list_item_text, :length => 80, :escape => false) %></td>
+									<td>
+                                        <div class="btn-group d-flex" role="group">
+                                            <%= link_to "Update Item", edit_list_post_item_path(list_item.post, list_item), class: "btn btn-primary btn-xs" %>
+                                            <%= link_to "Remove Item", list_post_item_path(list_item.post, list_item), method: :delete, data: { confirm: "Are you sure? This Action Cannot be Reversed." }, class: "btn btn-danger btn-xs" %>
+                                        </div>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
 
 					</table>
 				</div>

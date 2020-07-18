@@ -70,15 +70,15 @@
                     <span>List Articles</span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="<%= phc_menu_active_controller("phcdevworks_press/list/posts") %>"><%= link_to("Lists Index", phcdevworks_press.article_posts_path) %></li>
-                    <li class="<%= phc_menu_active_controller("phcdevworks_press/list/posts#new") %>"><%= link_to("Add a New List", phcdevworks_press.new_article_post_path) %></li>
+                    <li class="<%= phc_menu_active_controller("phcdevworks_press/list/posts") %>"><%= link_to("Lists Index", phcdevworks_press.list_posts_path) %></li>
+                    <li class="<%= phc_menu_active_controller("phcdevworks_press/list/posts#new") %>"><%= link_to("Add a New List", phcdevworks_press.new_list_post_path) %></li>
                 </ul>
             </li>
             <!-- -PHC- Sidebar - Sidebar Navigation - PHCDevworks Press -->
         <% end %>
 
         <% if defined?phcdevworks_portfolio %>
-            <!-- -PHC- Sidebar - Sidebar Navigation - PHCDevworks Press -->
+            <!-- -PHC- Sidebar - Sidebar Navigation - PHCDevworks Portfolio -->
             <li class="nav-header">Portfolio</li>
             <li class="has-sub">
                 <a href="javascript:;">
@@ -102,7 +102,7 @@
                     <li class="<%= phc_menu_active_controller("phcdevworks_portfolio/project/posts#new") %>"><%= link_to("New Types", phcdevworks_portfolio.new_project_type_path) %></li>
                 </ul>
             </li>
-            <!-- -PHC- Sidebar - Sidebar Navigation - PHCDevworks Press -->
+            <!-- -PHC- Sidebar - Sidebar Navigation - PHCDevworks Portfolio -->
         <% end %>
 
         <% if defined?phcdevworks_tutorials %>

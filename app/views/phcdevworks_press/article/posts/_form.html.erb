@@ -51,7 +51,7 @@
 				<% end %>
 				<div class="form-group">
 					<label>Attach SEO Data</label>
-					<%= collection_select(:article_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("marketing_optimization_page_title"), :id, :marketing_optimization_page_title, {}, {class: "form-control"}) %>
+					<%= collection_select(:article_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("marketing_optimization_page_title"), :id, :marketing_optimization_page_title, {include_blank: true}, {class: "form-control"}) %>
 				</div>
 			</div>
 		</div>

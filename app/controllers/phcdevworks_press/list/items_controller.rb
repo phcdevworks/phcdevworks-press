@@ -26,7 +26,7 @@ module PhcdevworksPress
 
     # GET /list/items/1/edit
     def edit
-      @list_item = List::Item.friendly.find(params[:post_id])
+      @list_post = List::Post.friendly.find(params[:post_id])
     end
 
     # POST /list/items
@@ -82,7 +82,7 @@ module PhcdevworksPress
 
     # Only allow a trusted parameter "white list" through.
     def list_item_params
-      params.require(:list_item).permit(:list_item_title, :list_item_description, :list_item_url, :slug, :optimization_id, :org_id, :user_id, category_ids: [])
+      params.require(:list_item).permit(:list_item_title, :list_item_text, :list_item_url, :slug, :optimization_id, :org_id, :user_id, category_ids: [])
     end
 
   end

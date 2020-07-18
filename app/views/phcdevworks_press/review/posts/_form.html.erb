@@ -7,7 +7,7 @@
     		<!-- Panel - Publishing -->
     		<div class="panel panel-inverse">
     			<div class="panel-heading">
-    				<h4 class="panel-title">Publish Panel</h4>
+    				<h4 class="panel-title">Review Publish Panel</h4>
     			</div>
     			<div class="panel-body">
     				<div class="form-group field_with_errors">
@@ -24,7 +24,7 @@
     		<!-- Panel - Image Uploading -->
     		<div class="panel panel-inverse">
     			<div class="panel-heading">
-    				<h4 class="panel-title">Post Images</h4>
+    				<h4 class="panel-title">Review Images</h4>
     			</div>
     			<div class="panel-body">
     				<div class="form-group field_with_errors">
@@ -43,7 +43,7 @@
     		<!-- Panel - Article - Categories -->
     		<div class="panel panel-inverse">
     			<div class="panel-heading">
-    				<h4 class="panel-title">Post Categories & SEO</h4>
+    				<h4 class="panel-title">Review Options</h4>
     			</div>
     			<div class="panel-body">
     				<%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Post::Category.all, :id, :post_category_name do |post_category| %>
@@ -52,8 +52,12 @@
     				<% end %>
     				<div class="form-group">
     					<label>Attach SEO Data</label>
-    					<%= collection_select(:review_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("marketing_optimization_page_title"), :id, :marketing_optimization_page_title, {}, {class: "form-control"}) %>
+    					<%= collection_select(:review_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("marketing_optimization_page_title"), :id, :marketing_optimization_page_title, {include_blank: true}, {class: "form-control"}) %>
     				</div>
+                    <div class="form-group">
+                        <%= form.label :review_post_rating, "Review Rating" %>
+                        <%= form.select( :review_post_rating, [["01","01"],["02","02"],["03","03"],["04","04"],["05","05"]], {}, {class: "form-control"}) %>
+                    </div>
     			</div>
     		</div>
     		<!-- Panel - Article - Categories -->
@@ -67,11 +71,6 @@
 
     		<div class="panel panel-inverse">
     			<div class="panel-heading">
-    				<div class="panel-heading-btn">
-    					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-    					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-    					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
-    				</div>
     				<h4 class="panel-title"><%= yield(:phc_title_tagline) %></h4>
     			</div>
     			<div class="panel-body">

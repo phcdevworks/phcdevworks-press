@@ -5,6 +5,7 @@ class CreatePhcdevworksPressListItems < ActiveRecord::Migration[6.0]
       t.string :list_item_title
       t.text :list_item_text
       t.string :list_item_url
+      t.integer :list_item_number
 
       t.string :post_id
       t.string :optimization_id

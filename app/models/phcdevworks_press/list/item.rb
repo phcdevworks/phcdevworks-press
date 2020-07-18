@@ -13,7 +13,6 @@ module PhcdevworksPress
     # Relationships
     belongs_to :user, class_name: "PhcdevworksAccounts::User"
     belongs_to :post, class_name: "PhcdevworksPress::List::Post"
-    has_and_belongs_to_many :categories, class_name: "PhcdevworksCoreModules::Post::Category", :join_table => "phcdevworks_press_categories_posts"
     belongs_to :optimization, class_name: "PhcdevworksCoreModules::Marketing::Optimization", optional: true
 
     # Form Fields Validation

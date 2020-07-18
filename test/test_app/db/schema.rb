@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_13_123475) do
+ActiveRecord::Schema.define(version: 2020_07_18_003441) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -122,6 +122,11 @@ ActiveRecord::Schema.define(version: 2020_07_13_123475) do
     t.index ["item_type", "item_id"], name: "post_category_versions"
   end
 
+  create_table "phcdevworks_press_article_categories_posts", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "post_id"
+  end
+
   create_table "phcdevworks_press_article_post_versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
@@ -144,7 +149,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_123475) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "phcdevworks_press_categories_posts", force: :cascade do |t|
+  create_table "phcdevworks_press_list_categories_posts", force: :cascade do |t|
     t.integer "category_id"
     t.integer "post_id"
   end
@@ -162,7 +167,8 @@ ActiveRecord::Schema.define(version: 2020_07_13_123475) do
   create_table "phcdevworks_press_list_items", force: :cascade do |t|
     t.string "list_item_title"
     t.text "list_item_text"
-    t.string "list_item_status"
+    t.string "list_item_url"
+    t.integer "list_item_number"
     t.string "post_id"
     t.string "optimization_id"
     t.string "slug"
@@ -192,6 +198,11 @@ ActiveRecord::Schema.define(version: 2020_07_13_123475) do
     t.string "org_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "phcdevworks_press_review_categories_posts", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "post_id"
   end
 
   create_table "phcdevworks_press_review_post_versions", force: :cascade do |t|
