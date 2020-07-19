@@ -227,7 +227,7 @@ GEM
       phcthemes_admin_panel_pack (~> 2.0)
       phcthemes_web_theme_pack (~> 2.0)
       rails (~> 6.0, >= 6.0.3.2)
-    phcdevworks_core_modules (6.0.0)
+    phcdevworks_core_modules (6.0.1)
       aws-sdk-s3 (~> 1.74)
       friendly_id (~> 5.3)
       google-cloud-storage (~> 1.26)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_003441) do
+ActiveRecord::Schema.define(version: 2020_07_19_090348) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(version: 2020_07_18_003441) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "firstname"
@@ -81,7 +93,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_003441) do
     t.string "whodunnit"
     t.text "object", limit: 1073741823
     t.datetime "created_at"
-    t.index ["item_type", "item_id"], name: "marketing_optimize_versions"
+    t.index ["item_type", "item_id"], name: "marketing_optimization_versions"
   end
 
   create_table "phcdevworks_core_modules_marketing_optimizations", force: :cascade do |t|
@@ -169,13 +181,14 @@ ActiveRecord::Schema.define(version: 2020_07_18_003441) do
     t.text "list_item_text"
     t.string "list_item_url"
     t.integer "list_item_number"
-    t.string "post_id"
     t.string "optimization_id"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
+    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_phcdevworks_press_list_items_on_post_id"
   end
 
   create_table "phcdevworks_press_list_post_versions", force: :cascade do |t|
