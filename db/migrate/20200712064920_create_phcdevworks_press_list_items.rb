@@ -7,12 +7,13 @@ class CreatePhcdevworksPressListItems < ActiveRecord::Migration[6.0]
       t.string :list_item_url
       t.integer :list_item_number
 
-      t.string :post_id
       t.string :optimization_id
 
       t.string :slug
       t.string :user_id
       t.string :org_id
+
+      t.references :post
 
       t.timestamps
 
