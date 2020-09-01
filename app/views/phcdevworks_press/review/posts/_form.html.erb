@@ -33,8 +33,6 @@
     				</div>
     				<% if form.object.review_post_image.attached? %>
     					<%= image_tag main_app.url_for(form.object.review_post_image), class: "img-responsive img-thumbnail" %>
-    					<%= form.label :remove_review_post_image %>
-    					<%= form.check_box :remove_review_post_image %>
     				<% end %>
     			</div>
     		</div>

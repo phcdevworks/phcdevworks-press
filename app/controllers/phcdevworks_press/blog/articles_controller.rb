@@ -8,13 +8,16 @@ module PhcdevworksPress
 
     # INDEX
     def index
-      @phcdevworks_cms_press_index = Article::Post.where(article_post_status: "published").order("created_at DESC")
-      @phcdevworks_cms_press_randomizer = Article::Post.order('RANDOM()').limit(1)
+      @phcdevworks_cms_press_article_index = Article::Post.where(article_post_status: "published").order("created_at DESC")
+      @phcdevworks_cms_press_list_index = List::Post.where(list_post_status: "published").order("created_at DESC")
+      @phcdevworks_cms_press_review_index = Review::Post.where(review_post_status: "published").order("created_at DESC")
     end
 
     # SHOW
     def show
-      @phcdevworks_cms_press_single = Article::Post.friendly.find(params[:id])
+      @phcdevworks_cms_press_article_single = Article::Post.friendly.find(params[:id])
+      @phcdevworks_cms_press_list_single = List::Post.friendly.find(params[:id])
+      @phcdevworks_cms_press_review_single = Review::Post.friendly.find(params[:id])
     end
 
   end

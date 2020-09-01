@@ -1,3 +1,3 @@
 module PhcdevworksPress
-    VERSION = "7.1.2"
+    VERSION = "7.1.4"
 end

@@ -20,6 +20,8 @@ PhcdevworksPress::Engine.routes.draw do
     # Frontend Routes
     namespace :blog do
         resources :articles, only: [:index, :show]
+        resources :lists, only: [:index, :show]
+        resources :reviews, only: [:index, :show]
     end
 
     # API Routes
