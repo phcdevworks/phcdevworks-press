@@ -1,7 +1,7 @@
 require_dependency "phcdevworks_press/application_controller"
 
 module PhcdevworksPress
-    class Blog::ListsController < ApplicationController
+    class Blog::ArticlesController < ApplicationController
 
         # Filters
         before_action :phc_blog_index_all
