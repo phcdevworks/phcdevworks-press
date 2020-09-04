@@ -75,7 +75,7 @@ module PhcdevworksPress
 
     # Whitelist
     def review_post_params
-     params.require(:review_post).permit(:review_post_title, :review_post_text, :review_post_status, :review_post_rating, :slug, :optimization_id, :org_id, :user_id, category_ids: [])
+     params.require(:review_post).permit(:review_post_title, :review_post_text, :review_post_status, :review_post_rating, :review_post_image, :slug, :optimization_id, :org_id, :user_id, category_ids: [])
     end
 
   end
