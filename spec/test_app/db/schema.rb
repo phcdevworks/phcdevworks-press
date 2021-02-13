@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_123652) do
+ActiveRecord::Schema.define(version: 2021_02_13_030728) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -95,6 +95,28 @@ ActiveRecord::Schema.define(version: 2020_12_29_123652) do
     t.index ["username"], name: "index_phcdevworks_accounts_users_on_username", unique: true
   end
 
+  create_table "phcdevworks_core_modules_affiliate_link_versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
+    t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "affiliate_link_versions"
+  end
+
+  create_table "phcdevworks_core_modules_affiliate_links", force: :cascade do |t|
+    t.string "affiliate_link_name"
+    t.string "affiliate_link_button_text"
+    t.string "affiliate_link_url"
+    t.string "affiliate_link_original_url"
+    t.string "slug"
+    t.string "user_id"
+    t.string "org_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "phcdevworks_core_modules_marketing_optimization_versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
@@ -167,6 +189,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_123652) do
     t.string "org_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "link_id"
   end
 
   create_table "phcdevworks_press_list_categories_posts", force: :cascade do |t|

@@ -40,20 +40,34 @@
 		<!-- Panel - Article - Categories -->
 		<div class="panel panel-inverse">
 			<div class="panel-heading">
-				<h4 class="panel-title">Post Categories & SEO</h4>
+				<h4 class="panel-title">Article Categories</h4>
 			</div>
 			<div class="panel-body">
 				<%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Post::Category.all, :id, :post_category_name do |post_category| %>
 					<%= post_category.check_box %>
 					<%= post_category.label %><br>
 				<% end %>
+			</div>
+		</div>
+		<!-- Panel - Article - Categories -->
+
+		<!-- Panel - Article - Optimizations -->
+		<div class="panel panel-inverse">
+			<div class="panel-heading">
+				<h4 class="panel-title">Article Marketing</h4>
+			</div>
+			<div class="panel-body">
 				<div class="form-group">
 					<label>Attach SEO Data</label>
 					<%= collection_select(:article_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("marketing_optimization_page_title"), :id, :marketing_optimization_page_title, {include_blank: true}, {class: "form-control"}) %>
 				</div>
+				<div class="form-group">
+					<label>Attach Affiliate Data</label>
+					<%= collection_select(:article_post, :link_id, PhcdevworksCoreModules::Affiliate::Link.order("affiliate_link_name"), :id, :affiliate_link_name, {include_blank: true}, {class: "form-control"}) %>
+				</div>
 			</div>
 		</div>
-		<!-- Panel - Article - Categories -->
+		<!-- Panel - Article - Optimizations -->
 
 	</div>
 	<div class="col-md-9 ">
@@ -66,8 +80,6 @@
 			<div class="panel-heading">
 				<div class="panel-heading-btn">
 					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
 				</div>
 				<h4 class="panel-title"><%= yield(:phc_title_tagline) %></h4>
 			</div>

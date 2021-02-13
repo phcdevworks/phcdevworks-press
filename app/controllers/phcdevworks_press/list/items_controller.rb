@@ -82,7 +82,7 @@ module PhcdevworksPress
 
     # Only allow a trusted parameter "white list" through.
     def list_item_params
-      params.require(:list_item).permit(:list_item_title, :list_item_text, :list_item_url, :slug, :optimization_id, :org_id, :user_id, category_ids: [])
+      params.require(:list_item).permit(:list_item_title, :list_item_text, :list_item_url, :slug, :optimization_id, :link_id, :org_id, :user_id, category_ids: [])
     end
 
   end
