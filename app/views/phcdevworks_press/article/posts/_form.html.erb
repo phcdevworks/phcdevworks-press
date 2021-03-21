@@ -65,6 +65,10 @@
 					<label>Attach Affiliate Data</label>
 					<%= collection_select(:article_post, :link_id, PhcdevworksCoreModules::Affiliate::Link.order("affiliate_link_name"), :id, :affiliate_link_name, {include_blank: true}, {class: "form-control"}) %>
 				</div>
+				<div class="form-group field_with_errors">
+					<%= form.label :slug, "Article Slug" %>
+					<%= form.text_field :slug, class: "form-control" %>
+				</div>
 			</div>
 		</div>
 		<!-- Panel - Article - Optimizations -->
