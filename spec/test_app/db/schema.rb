@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_030728) do
+ActiveRecord::Schema.define(version: 2021_04_11_112641) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_030728) do
     t.string "org_id"
     t.integer "role"
     t.boolean "terms_of_service"
+    t.string "payments_customer_id"
     t.index ["confirmation_token"], name: "index_phcdevworks_accounts_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_phcdevworks_accounts_users_on_email", unique: true
     t.index ["firstname"], name: "index_phcdevworks_accounts_users_on_firstname"

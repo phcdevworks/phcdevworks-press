@@ -33,7 +33,6 @@ PhcdevworksPress::Engine.routes.draw do
 
     # Mount Routes
     mount PhcdevworksAccounts::Engine, :at => '/'
-    mount PhcdevworksAccountsStripe::Engine, :at => '/'
     mount PhcdevworksCoreModules::Engine, :at => '/'
 
 end
